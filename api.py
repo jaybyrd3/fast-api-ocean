@@ -11,9 +11,11 @@ async def root():
     return "PISS OFF"
 
 
-@app.get("/get_link")
-def get_link(link):
-    r = requests.get(link)
+@app.get("/get_steam")
+def get_steam(id):
+    url = "https://steamcommunity.com/market/itemordershistogram"
+    params = {"country": "US", "currency": 1,"language": "english", "item_nameid": id,"two_factor": 0}
+    r = requests.get(url=url, params=params)
     return(r.json())
 
 
